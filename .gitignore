@@ -1,0 +1,13 @@
+# .gitignore for .NET/MAUI
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userprefs
+*.DS_Store
+*.apk
+*.aab
+*.pdb
+*.db
+
