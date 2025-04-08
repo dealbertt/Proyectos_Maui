@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SafeSpace.Pages.LoginPage">
+			
 
 
     <VerticalStackLayout
@@ -23,12 +24,16 @@
 					Command="{Binding NavigateToAboutCommand}" />
 			</Label.GestureRecognizers>
 		</Label>
-        <Button Text="Log in" FontSize="25" Command="{Binding LoginCommmand}">
+        <Button Text="Log in" FontSize="25" Command="{Binding LoginCommmand}" Clicked="OnLoadClicked">
 
-	
 
         </Button>
-
+		<ActivityIndicator x:Name="LoadingIndicator"
+							   IsRunning="False"
+							   IsVisible="False"
+							   Color="Blue"
+							   HorizontalOptions="Center"
+							   VerticalOptions="Center"/>
 
     </VerticalStackLayout>
 
