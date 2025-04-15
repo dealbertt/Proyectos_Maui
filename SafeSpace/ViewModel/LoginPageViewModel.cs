@@ -1,88 +1,102 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
-using Microsoft.Maui.Controls;
 using System.Windows.Input;
+using Microsoft.Maui.Controls;
+using System.Text.Json;
+using System.Text;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace SafeSpace.ViewModel
 {
-    class LoginPageViewModel : BindableObject
+
+
+    public class LoginViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private string _userName;
         private string _password;
         private string _message;
-        private Color _messagecolor;
+        private Color _messageColor;
 
         public string UserName
         {
             get => _userName;
-            set
-            {
-                _userName = value;
-                OnPropertyChanged();
-            }
+            set => SetProperty(ref _userName, value);
         }
 
         public string Password
         {
             get => _password;
-            set
-            {
-                _password = value;
-                OnPropertyChanged();
-            }
+            set => SetProperty(ref _password, value);
         }
 
         public string Message
         {
             get => _message;
-            set
-            {
-                _message = value;
-                OnPropertyChanged();
-            }
+            set => SetProperty(ref _message, value);
         }
 
         public Color MessageColor
         {
-            get => _messagecolor;
-            set
-            {
-                _messagecolor = value;
-                OnPropertyChanged();
-            }
+            get => _messageColor;
+            set => SetProperty(ref _messageColor, value);
         }
 
-        public ICommand LoginCommand { get; }
+        public ICommand LoginCommmand { get; }
 
-        public LoginPageViewModel() {
-            LoginCommand = new Command(OnLogin);
-        }
-        private async void OnLogin()
+        public LoginViewModel()
         {
-            if (string.IsNullOrEmpty(UserName) || string.IsNullOrEmpty(Password)) {
-                await Shell.Current.DisplayAlert("Error", "Please enter both", "Ok");
-                return;
-            }
+            LoginCommmand = new Command(async () => await Login());
+        }
 
-            if (UserName == "dealbertt" && Password == "password")
+        private async Task Login()
+        {
+            var httpClient = new HttpClient();
+            var url = "http://10.0.2.2:5053/api/Auth/login"; // Change if needed
+
+            var request = new
             {
-                Message = "Login Successful!";
-                MessageColor = Colors.Green;
+                username = UserName,
+                password = Password
+            };
 
-                // Wait a moment before navigating (optional)
-                
-
-                // Navigate to MainPage after success
-            }
-            else
+            try
             {
-                Message = "Invalid username or password.";
+                var json = JsonSerializer.Serialize(request);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync(url, content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageColor = Colors.Green;
+                    Message = "Login successful!";
+                    // You could navigate to another page here
+                }
+                else
+                {
+                    MessageColor = Colors.Red;
+                    Message = "Login failed: " + responseContent;
+                }
+            }
+            catch (Exception ex)
+            {
                 MessageColor = Colors.Red;
+                Message = $"Error: {ex.Message}";
             }
         }
 
+        private void SetProperty<T>(ref T backingField, T value, [CallerMemberName] string propertyName = "")
+        {
+            if (!Equals(backingField, value))
+            {
+                backingField = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }
