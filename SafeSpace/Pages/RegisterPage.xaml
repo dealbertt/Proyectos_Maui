@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SafeSpace.Pages.LoginPage">
-			
+             x:Class="SafeSpace.Pages.RegisterPage">
+
 
 
     <VerticalStackLayout
             Padding="20"
             Spacing="20">
-		<Label Text="Welcome to SafeSpace" HorizontalOptions="Center" Margin="0,0,0,10"></Label>
-        <Label Text="Log in" HorizontalOptions ="Center"></Label>
+        <Label Text="Welcome to SafeSpace" HorizontalOptions="Center" Margin="0,0,0,10"></Label>
+        <Label Text="Register" HorizontalOptions ="Center"></Label>
 
 
         <Entry Text="{Binding UserName}" Placeholder="Email"></Entry>
         <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="true"></Entry>
-		<Label Text="{Binding Message}" TextColor="{Binding MessageColor}" FontSize="16" HorizontalOptions="Center"/>
-        <Label Text="Don't have an account? Register"
+        <Label Text="{Binding Message}" TextColor="{Binding MessageColor}" FontSize="16" HorizontalOptions="Center"/>
+        <Label Text="Dont have an account? Register"
        TextColor="Blue"
-       FontAttributes="Bold"
-       TextDecorations="Underline"
        HorizontalOptions="Center"
        VerticalOptions="Center">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding NavigateToAboutCommand}" />
+                <TapGestureRecognizer
+					Command="{Binding NavigateToAboutCommand}" />
             </Label.GestureRecognizers>
         </Label>
-        <Button Text="Log in" FontSize="25" Command="{Binding LoginCommand}" Clicked="OnLoadClicked">
+        <Button Text="Register" FontSize="25" Command="{Binding LoginCommand}">
 
 
         </Button>
-		<ActivityIndicator x:Name="LoadingIndicator"
+        <ActivityIndicator x:Name="LoadingIndicator"
 							   IsRunning="False"
 							   IsVisible="False"
 							   Color="Blue"

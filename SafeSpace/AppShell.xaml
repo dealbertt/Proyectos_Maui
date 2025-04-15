@@ -4,6 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:SafeSpace"
+    
+    xmlns:pages="clr-namespace:SafeSpace.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="SafeSpace">
 
@@ -11,6 +13,10 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-    
+
+    <ShellContent
+        Route="RegisterPage"
+        ContentTemplate="{DataTemplate pages:RegisterPage}" />
+
 
 </Shell>
