@@ -6,14 +6,26 @@ using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using SafeSpace.ViewModel;
 
-namespace SafeSpace.Pages;
-
-public partial class RegisterPage : ContentPage
+namespace SafeSpace.Pages
 {
-    public RegisterPage()
+    public partial class RegisterPage : ContentPage
     {
-        InitializeComponent();
+        public RegisterPage()
+        {
+            InitializeComponent();
+            BindingContext = new RegisterPageViewModel();
+        }
+        private async void OnLoadClicked(object sender, EventArgs e)
+        {
+            LoadingIndicator.IsRunning = true;
+            LoadingIndicator.IsVisible = true;
 
+
+            // Simulate some loading
+            await Task.Delay(6000); // Replace with your actual loading logic
+
+            LoadingIndicator.IsRunning = false;
+            LoadingIndicator.IsVisible = false;
+        }
     }
-
 }
