@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title=""
+             BackgroundColor="LightGray"
+             
              x:Class="SafeSpace.Pages.MainPage">
 
 
@@ -11,24 +13,31 @@
             Spacing="40">
 
         <Image Source="logo.jpg"
-        HeightRequest="120"
-        WidthRequest="120"></Image>
-        <Label Text="Welcome to SafeSpace" FontSize ="20" HorizontalOptions="Center"></Label>
+        HeightRequest="100"
+        WidthRequest="100"></Image>
+        <Label FontSize ="30" HorizontalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Safe" TextColor="Blue" FontFamily="Quicksand"> </Span>
+                    <Span Text = "Space" TextColor="Green" FontFamily="Quicksand"></Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
        
 
 
 
-        <Button Text="Log in" BackgroundColor="Green" FontFamily="OpenSansRegular" FontSize="25" Command="{Binding NavigateToLoginCommand}">
+        <Button Text="LOG IN" BackgroundColor="Green" FontFamily="Quicksand" FontSize="25" Command="{Binding NavigateToLoginCommand}">
 
         </Button>
 
-        <Button Text="Register" BackgroundColor="Green" FontFamily="RobotoRegular"  FontSize="25" Command="{Binding NavigateToRegisterCommand}">
+        <Button Text="REGISTER" BackgroundColor="Green" FontFamily="Quicksand"  FontSize="25" Command="{Binding NavigateToRegisterCommand}">
 
         </Button>
 
         <Label Text="Want to keep it anonymous? Continue as Guest"
     TextColor="Blue"
-    FontFamily="RobotoRegular"
+    FontFamily="Quicksand"
     FontAttributes="Bold"
     TextDecorations="Underline"
     HorizontalOptions="Center"

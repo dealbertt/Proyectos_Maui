@@ -59,7 +59,7 @@ public class LoginViewModel : INotifyPropertyChanged
     private async Task Login()
     {
         var httpClient = new HttpClient();
-        var url = "http://10.0.2.2:5053/api/Auth/login"; // Change if needed
+        var url = "http://10.0.2.2:5053/api/Auth/login";
 
         var request = new
         {
@@ -89,6 +89,14 @@ public class LoginViewModel : INotifyPropertyChanged
                 Preferences.Set("UserName", userInfo.GetProperty("name").GetString());
                 Preferences.Set("Email", userInfo.GetProperty("email").GetString());
                 Preferences.Set("Password", userInfo.GetProperty("password").GetString());
+
+                if (userInfo.TryGetProperty("profile", out var profile))
+                {
+                    Preferences.Set("ProfileUserId", profile.GetProperty("userId").GetInt32());
+                    Preferences.Set("FullName", profile.GetProperty("fullName").GetString());
+                    Preferences.Set("Bio", profile.GetProperty("bio").GetString());
+                    Preferences.Set("Age", profile.GetProperty("age").GetInt32());
+                }
 
 
                 await Shell.Current.GoToAsync("///HomePage");

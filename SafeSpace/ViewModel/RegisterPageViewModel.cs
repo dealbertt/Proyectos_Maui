@@ -93,7 +93,7 @@ namespace SafeSpace.ViewModel
                 {
                     MessageColor = Colors.Green;
                     Message = "Register successful!";
-                    // You could navigate to another page here
+                    await Shell.Current.GoToAsync("///MainPage");
                 }
                 else
                 {

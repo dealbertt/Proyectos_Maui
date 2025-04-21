@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="LightGray"
              x:Class="SafeSpace.Pages.RegisterPage">
 
 
 
     <VerticalStackLayout
             Padding="20"
-            Spacing="20">
-        <Label Text="Welcome to SafeSpace" HorizontalOptions="Center" Margin="0,0,0,10"></Label>
-        <Label Text="Register" HorizontalOptions ="Center"></Label>
+            Spacing="20"
+            Margin="0,60,0,0">
+        <Label FontSize ="30" HorizontalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Safe" TextColor="Blue" FontFamily="Quicksand"></Span>
+                    <Span Text = "Space" TextColor="Green" FontFamily="Quicksand"></Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
 
 
-        <Entry Text="{Binding UserName}" Placeholder="Introduce a username"></Entry>
-		<Entry Text="{Binding Email}" Placeholder="Introduce a valid email"></Entry>
-        <Entry Text="{Binding Password}" Placeholder="Introduce a secure password" IsPassword="true"></Entry>
+        <Entry Text="{Binding UserName}" FontSize="20" PlaceholderColor="Black" Placeholder="Introduce a username"></Entry>
+		<Entry Text="{Binding Email}" FontSize="20" PlaceholderColor="Black" Placeholder="Introduce a valid email"></Entry>
+        <Entry Text="{Binding Password}" FontSize="20" PlaceholderColor="Black" Placeholder="Introduce a secure password" IsPassword="true"></Entry>
 	
         <Label Text="{Binding Message}" TextColor="{Binding MessageColor}" FontSize="16" HorizontalOptions="Center"/>
         
-        <Button Text="Register" FontSize="25" Command="{Binding RegisterCommand}">
+        <Button Text="Register" FontFamily="Quicksand" BackgroundColor="Green" FontSize="25" Command="{Binding RegisterCommand}">
 
 
         </Button>

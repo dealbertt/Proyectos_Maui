@@ -26,4 +26,8 @@
     Route="HomePage"
     ContentTemplate="{DataTemplate pages:HomePage}" />
 
+    <ShellContent
+    Route="ShowProfilePage"
+    ContentTemplate="{DataTemplate pages:ShowProfilePage}" />
+
 </Shell>

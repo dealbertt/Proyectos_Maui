@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="LightGray"
+             x:Class="SafeSpace.Pages.ShowProfilePage">
+   
+    <VerticalStackLayout
+            Padding="20"
+            Spacing="40">
+		
+		<Label Text="{Binding FullName, StringFormat='Full Name: {0}'}" HorizontalOptions="Start" FontSize="25"
+                IsVisible="{Binding IsEditingFullName, Converter={StaticResource InverseBoolConverter}}" ></Label>
+        <Entry Text="{Binding FullName, Mode=TwoWay}"
+               IsVisible="{Binding IsEditingFullName}" />
+       
+        <Button Text="{Binding FullNameEditButtonText}" FontFamily="Quicksand" FontSize="17" BackgroundColor="Green"
+                Command="{Binding ToggleEditFullNameCommand}" WidthRequest="60" HorizontalOptions="Start"/>
+
+
+        <Label Text="{Binding Age, StringFormat='Age: {0}'}" HorizontalOptions="Start" FontSize="25"
+               IsVisible="{Binding IsEditingAge, Converter={StaticResource InverseBoolConverter}}" />
+        <Entry Text="{Binding Age, Mode=TwoWay}"
+               Keyboard="Numeric"
+               IsVisible="{Binding IsEditingAge}" />
+        <Button Text="{Binding AgeEditButtonText}" FontSize="17" FontFamily="Quicksand" BackgroundColor="Green"
+                Command="{Binding ToggleEditAgeCommand}" WidthRequest="60" HorizontalOptions="Start"/>
+
+        <Label Text="{Binding Bio, StringFormat='Biography: {0}'}" HorizontalOptions="Start" FontSize="25"
+               IsVisible="{Binding IsEditingBio, Converter={StaticResource InverseBoolConverter}}" />
+        <Editor Text="{Binding Bio, Mode=TwoWay}"
+                AutoSize="TextChanges"
+                HeightRequest="80"
+                IsVisible="{Binding IsEditingBio}" />
+        <Button Text="{Binding BioEditButtonText}" FontFamily="Quicksand" FontSize="17" BackgroundColor="Green"
+                Command="{Binding ToggleEditBioCommand}" WidthRequest="60" HorizontalOptions="Start" />
+
+
+        <Button Text="Save Changes" BackgroundColor="Green" FontFamily="Quicksand" HorizontalOptions="Center" Command="{Binding SaveChanges}"></Button>
+    </VerticalStackLayout>
+
+
+
+</ContentPage>

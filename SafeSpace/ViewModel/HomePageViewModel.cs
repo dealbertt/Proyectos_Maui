@@ -14,9 +14,9 @@ namespace SafeSpace.ViewModel
     {
         private string _welcomeMessage;
         private Color _color;
-        public ICommand NavigateToProfileCommand { get; }
-        public ICommand NavigateToChatCommand { get; }
-        public ICommand NavigateToHelpCommand { get; }
+        public ICommand NavigateToProfile { get; }
+        public ICommand NavigateToChat { get; }
+        public ICommand NavigateToHelp { get; }
         public ICommand LogOut{ get; }
         public string WelcomeMessage
         {
@@ -39,7 +39,7 @@ namespace SafeSpace.ViewModel
             var userName = Preferences.Get("UserName", defaultValue:"Nothing");
             
             WelcomeMessage = $"Welcome, {userName}!";
-            //NavigateToProfileCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(RegisterPage)));
+            NavigateToProfile = new Command(async () => await Shell.Current.GoToAsync(nameof(ShowProfilePage)));
             // NavigateToChatCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(LoginPage)));
             //NavigateToHelpCommand = new Command(async () => await GuestLogin());
             LogOut = new Command(OnLogOut);

@@ -3,25 +3,21 @@
              x:Class="SafeSpace.Pages.HomePage"
              NavigationPage.HasBackButton="False"
               NavigationPage.HasNavigationBar="False"
-             BackgroundColor="White">
+             BackgroundColor="LightGray">
 
-	
-		<!-- Main Content -->
-	
-
-		<!-- Bottom Navigation Bar -->
+		
         <VerticalStackLayout
             
-            BackgroundColor="#EEEEEE"
-            HorizontalOptions="Fill"
+            
+            HorizontalOptions="Center"
             VerticalOptions="Center"
 
-            Padding="20,0"
+            Padding="10,0"
             Spacing="40">
-        <Label Text="{Binding WelcomeMessage}"></Label>
-        <Button BackgroundColor="Green" FontFamily="RobotoRegular"  FontSize="25" Text="Profile Configuration" Command="{Binding NavigateToProfile}"></Button>
-        <Button BackgroundColor="Green" FontFamily="RobotoRegular"  FontSize="25" Text="Chats and Meetups" Command="{Binding NavigateToChats}"></Button>
-        <Button BackgroundColor="Green" FontFamily="RobotoRegular"  FontSize="25" Text="Contact a professional" Command="{Binding NavigateToHelp}"></Button>
+        <Label Text="{Binding WelcomeMessage}" HorizontalOptions="Center" FontSize="25"></Label>
+        <Button BackgroundColor="Green" FontFamily="Quicksand"  FontSize="25" WidthRequest="300" Text="Profile Configuration" Command="{Binding NavigateToProfile}"></Button>
+        <Button BackgroundColor="Green" FontFamily="Quicksand"  FontSize="25" Text="Chats and Meetups" WidthRequest="300" Command="{Binding NavigateToChats}"></Button>
+        <Button BackgroundColor="Green" FontFamily="Quicksand"  FontSize="25" Text="Contact help" WidthRequest="300" Command="{Binding NavigateToHelp}"></Button>
 
 
         <Button VerticalOptions="End" Text="LogOut" Command="{Binding LogOut}" WidthRequest="80" BackgroundColor="Green"></Button>
