@@ -1,28 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title=""
              x:Class="SafeSpace.Pages.MainPage">
 
 
         <VerticalStackLayout
-            Padding="20"
-            Spacing="20">
+            Margin="0,20,0,0"
+            Padding="30"
+            Spacing="40">
 
-        <Label Text="Welcome to SafeSpace"></Label>
+        <Image Source="logo.jpg"
+        HeightRequest="120"
+        WidthRequest="120"></Image>
+        <Label Text="Welcome to SafeSpace" FontSize ="20" HorizontalOptions="Center"></Label>
+       
 
 
 
-        <Button Text="Log in" FontSize="25" Command="{Binding NavigateToLoginCommand}">
+        <Button Text="Log in" BackgroundColor="Green" FontFamily="OpenSansRegular" FontSize="25" Command="{Binding NavigateToLoginCommand}">
+
+        </Button>
+
+        <Button Text="Register" BackgroundColor="Green" FontFamily="RobotoRegular"  FontSize="25" Command="{Binding NavigateToRegisterCommand}">
 
         </Button>
 
-        <Button Text="Register" FontSize="25" Command="{Binding NavigateToRegisterCommand}">
-
-        </Button>
-
-        <Button Text="Want to keep it anonymous? Continue as a guest" FontSize="25" Command="{Binding LoginCommmand}">
-
-        </Button>
+        <Label Text="Want to keep it anonymous? Continue as Guest"
+    TextColor="Blue"
+    FontFamily="RobotoRegular"
+    FontAttributes="Bold"
+    TextDecorations="Underline"
+    HorizontalOptions="Center"
+    VerticalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateToGuestCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
 
 
     </VerticalStackLayout>

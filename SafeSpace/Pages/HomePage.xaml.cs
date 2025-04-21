@@ -3,15 +3,12 @@ using SafeSpace.ViewModel;
 
 namespace SafeSpace.Pages
 {
-    public partial class MainPage : ContentPage
+    public partial class HomePage : ContentPage
     {
-       public MainPage()
+        public HomePage()
         {
             InitializeComponent();
-            BindingContext = new MainPageViewModel();
-            
+            BindingContext = new HomePageViewModel();
         }
-       
     }
-
 }

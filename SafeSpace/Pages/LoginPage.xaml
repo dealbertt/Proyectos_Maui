@@ -12,7 +12,7 @@
         <Label Text="Log in" HorizontalOptions ="Center"></Label>
 
 
-        <Entry Text="{Binding UserName}" Placeholder="Email"></Entry>
+        <Entry Text="{Binding UserName}" Placeholder="Username"></Entry>
         <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="true"></Entry>
 		<Label Text="{Binding Message}" TextColor="{Binding MessageColor}" FontSize="16" HorizontalOptions="Center"/>
         <Label Text="Don't have an account? Register"

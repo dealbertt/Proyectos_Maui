@@ -54,7 +54,6 @@ public class LoginViewModel : INotifyPropertyChanged
         get => _messageColor;
         set => SetProperty(ref _messageColor, value);
     }
-
     
 
     private async Task Login()
@@ -76,11 +75,24 @@ public class LoginViewModel : INotifyPropertyChanged
             var response = await httpClient.PostAsync(url, content);
             var responseContent = await response.Content.ReadAsStringAsync();
 
+            using var jsonDoc = JsonDocument.Parse(responseContent);
+            var userInfo = jsonDoc.RootElement.GetProperty("user");
+
             if (response.IsSuccessStatusCode)
             {
                 MessageColor = Colors.Green;
                 Message = "Login successful!";
                 // You could navigate to another page here
+
+                await Task.Delay(500);
+                Preferences.Set("UserId", userInfo.GetProperty("id").GetInt32());
+                Preferences.Set("UserName", userInfo.GetProperty("name").GetString());
+                Preferences.Set("Email", userInfo.GetProperty("email").GetString());
+                Preferences.Set("Password", userInfo.GetProperty("password").GetString());
+
+
+                await Shell.Current.GoToAsync("///HomePage");
+
             }
             else
             {

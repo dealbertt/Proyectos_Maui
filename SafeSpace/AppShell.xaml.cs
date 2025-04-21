@@ -10,6 +10,8 @@ namespace SafeSpace
 
             Routing.RegisterRoute("RegisterPage", typeof(RegisterPage));
             Routing.RegisterRoute("LoginPage", typeof(LoginPage));
+            Routing.RegisterRoute("MainPage", typeof(MainPage));
+            
     
         }
     }

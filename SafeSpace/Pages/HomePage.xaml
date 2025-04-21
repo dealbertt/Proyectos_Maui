@@ -1,0 +1,32 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SafeSpace.Pages.HomePage"
+             NavigationPage.HasBackButton="False"
+              NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+
+	
+		<!-- Main Content -->
+	
+
+		<!-- Bottom Navigation Bar -->
+        <VerticalStackLayout
+            
+            BackgroundColor="#EEEEEE"
+            HorizontalOptions="Fill"
+            VerticalOptions="Center"
+
+            Padding="20,0"
+            Spacing="40">
+        <Label Text="{Binding WelcomeMessage}"></Label>
+        <Button BackgroundColor="Green" FontFamily="RobotoRegular"  FontSize="25" Text="Profile Configuration" Command="{Binding NavigateToProfile}"></Button>
+        <Button BackgroundColor="Green" FontFamily="RobotoRegular"  FontSize="25" Text="Chats and Meetups" Command="{Binding NavigateToChats}"></Button>
+        <Button BackgroundColor="Green" FontFamily="RobotoRegular"  FontSize="25" Text="Contact a professional" Command="{Binding NavigateToHelp}"></Button>
+
+
+        <Button VerticalOptions="End" Text="LogOut" Command="{Binding LogOut}" WidthRequest="80" BackgroundColor="Green"></Button>
+
+    </VerticalStackLayout>
+	
+
+</ContentPage>

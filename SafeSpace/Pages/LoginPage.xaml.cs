@@ -10,6 +10,8 @@ namespace SafeSpace.Pages
             InitializeComponent();
             BindingContext = new LoginViewModel();
         }
+   
+       
         private async void OnLoadClicked(object sender, EventArgs e)
         {
             LoadingIndicator.IsRunning = true;
