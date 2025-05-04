@@ -7,8 +7,8 @@
     <VerticalStackLayout
             Padding="20"
             Spacing="40">
-		
-		<Label Text="{Binding FullName, StringFormat='Full Name: {0}'}" HorizontalOptions="Start" FontSize="25"
+        <Image Source="user.png" WidthRequest="75" HeightRequest="75" HorizontalOptions="Start"></Image>
+        <Label Text="{Binding FullName, StringFormat='Full Name: {0}'}" HorizontalOptions="Start" FontSize="25"
                 IsVisible="{Binding IsEditingFullName, Converter={StaticResource InverseBoolConverter}}" ></Label>
         <Entry Text="{Binding FullName, Mode=TwoWay}"
                IsVisible="{Binding IsEditingFullName}" />

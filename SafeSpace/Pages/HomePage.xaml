@@ -14,6 +14,7 @@
 
             Padding="10,0"
             Spacing="40">
+        <Image Source="user.png" WidthRequest="150" HeightRequest="150"></Image>
         <Label Text="{Binding WelcomeMessage}" HorizontalOptions="Center" FontSize="25"></Label>
         <Button BackgroundColor="Green" FontFamily="Quicksand"  FontSize="25" WidthRequest="300" Text="Profile Configuration" Command="{Binding NavigateToProfile}"></Button>
         <Button BackgroundColor="Green" FontFamily="Quicksand"  FontSize="25" Text="Chats and Meetups" WidthRequest="300" Command="{Binding NavigateToChats}"></Button>
