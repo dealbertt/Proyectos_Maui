@@ -41,7 +41,7 @@ namespace SafeSpace.ViewModel
             WelcomeMessage = $"Welcome, {userName}!";
             NavigateToProfile = new Command(async () => await Shell.Current.GoToAsync(nameof(ShowProfilePage)));
             // NavigateToChatCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(LoginPage)));
-            //NavigateToHelpCommand = new Command(async () => await GuestLogin());
+            NavigateToHelp = new Command(async () => await Shell.Current.GoToAsync(nameof(HelpPage)));
             LogOut = new Command(OnLogOut);
         }
         public async void OnLogOut()

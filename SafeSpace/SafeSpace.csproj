@@ -58,6 +58,10 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\Quicksand-Bold.ttf" />
+	  <None Remove="Resources\Images\avatar1.png" />
+	  <None Remove="Resources\Images\avatar2.png" />
+	  <None Remove="Resources\Images\avatar3.png" />
+	  <None Remove="Resources\Images\avatar4.png" />
 	  <None Remove="Resources\Images\profile.png" />
 	  <None Remove="Resources\Images\user.png" />
 	</ItemGroup>
@@ -69,6 +73,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\HelpPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
