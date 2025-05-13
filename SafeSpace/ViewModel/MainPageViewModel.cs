@@ -42,7 +42,7 @@ namespace SafeSpace.ViewModel
         private async Task GuestLogin()
         {
             var httpClient = new HttpClient();
-            var url = "http://10.0.2.2:5053/api/Auth/guest-login";
+            var url = "http://localhost:5053/api/Auth/guest-login";
 
             try
             {

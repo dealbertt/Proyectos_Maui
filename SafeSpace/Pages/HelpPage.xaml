@@ -16,6 +16,14 @@
 							<Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" />
 							<Label Text="{Binding PhoneNumber}" FontSize="14" TextColor="Gray" />
 							<Label Text="{Binding Email}" FontSize="14" TextColor="Gray" />
+							<Button Text="Call"
+			BackgroundColor="Green"
+			TextColor="White"
+			FontSize="14"
+			CornerRadius="5"
+			CommandParameter="{Binding PhoneNumber}"
+			Clicked="OnCallButtonClicked" />
+							<Button Text="Email" CommandParameter="{Binding Email}" Clicked="OnEmailButtonClicked" BackgroundColor="Green" TextColor="White"/>
 						</VerticalStackLayout>
 					</HorizontalStackLayout>
 				</Frame>

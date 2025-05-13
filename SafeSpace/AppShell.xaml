@@ -30,4 +30,11 @@
     Route="ShowProfilePage"
     ContentTemplate="{DataTemplate pages:ShowProfilePage}" />
 
+    <ShellContent
+   Route="ChatPage"
+   ContentTemplate="{DataTemplate pages:ChatPage}" />
+
+    <ShellContent
+    Route="ShowChatsPage"
+    ContentTemplate="{DataTemplate pages:ShowChatsPage}" />
 </Shell>

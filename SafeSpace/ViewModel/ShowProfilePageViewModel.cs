@@ -174,7 +174,7 @@ namespace SafeSpace.ViewModel
             try
             {
                 // Replace with your actual API endpoint
-                var url = "http://10.0.2.2:5053/api/Auth/update";
+                var url = "http://localhost:5053/api/Auth/update";
                 var response = await httpclient.PutAsync(url, content);
 
                 if (response.IsSuccessStatusCode)

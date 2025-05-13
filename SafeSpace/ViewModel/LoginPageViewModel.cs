@@ -59,7 +59,7 @@ public class LoginViewModel : INotifyPropertyChanged
     private async Task Login()
     {
         var httpClient = new HttpClient();
-        var url = "http://10.0.2.2:5053/api/Auth/login";
+        var url = "http://localhost:5053/api/Auth/login";
 
         var request = new
         {
