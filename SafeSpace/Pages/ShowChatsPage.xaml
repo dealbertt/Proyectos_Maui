@@ -11,18 +11,25 @@
                     SelectionMode="Single"
                      SelectionChanged="OnChatroomSelected"
                     x:Name="ChatsList"
-                    Margin="10">
+                    Margin="10, 50">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame Padding="20" Margin="50,50,50,50" CornerRadius="10" BorderColor="White" BackgroundColor="Green">
+                <Frame Padding="20" Margin="50,50" MaximumWidthRequest="350" CornerRadius="10" BorderColor="White" BackgroundColor="Green">
                     <HorizontalStackLayout Spacing="15">
                         <Image Source="chat.png" WidthRequest="40" HeightRequest="40"></Image>
                         <VerticalStackLayout>
                             
                             <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" />
-                            <Label Text="{Binding LastMessage}" FontSize="14" TextColor="Gray" />
-                
-                            
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Last Message: " />
+                                        <Span Text="{Binding LastMessage}" FontAttributes="Bold" TextColor="White"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+
                         </VerticalStackLayout>
                     </HorizontalStackLayout>
                 </Frame>

@@ -2,34 +2,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SafeSpace.Pages.HelpPage"
              NavigationPage.HasBackButton="False"
-              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="LightGray">
-	
-	<Label Text="Saved Contacts" HorizontalOptions="Center" FontSize="24"></Label>
-	<CollectionView x:Name="ContactsList">
-		<CollectionView.ItemTemplate>
-			<DataTemplate>
-				<Frame Padding="10" Margin="20" BorderColor="LightGray" CornerRadius="10">
-					<HorizontalStackLayout Spacing="15">
-						<Image Source="{Binding Image}" WidthRequest="50" HeightRequest="50" Aspect="AspectFill"/>
-						<VerticalStackLayout>
-							<Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" />
-							<Label Text="{Binding PhoneNumber}" FontSize="14" TextColor="Gray" />
-							<Label Text="{Binding Email}" FontSize="14" TextColor="Gray" />
-							<Button Text="Call"
-			BackgroundColor="Green"
-			TextColor="White"
-			FontSize="14"
-			CornerRadius="5"
-			CommandParameter="{Binding PhoneNumber}"
-			Clicked="OnCallButtonClicked" />
-							<Button Text="Email" CommandParameter="{Binding Email}" Clicked="OnEmailButtonClicked" BackgroundColor="Green" TextColor="White"/>
-						</VerticalStackLayout>
-					</HorizontalStackLayout>
-				</Frame>
-			</DataTemplate>
-		</CollectionView.ItemTemplate>
-	</CollectionView>
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="LightGray"
+             Title="Recommended Contacts">
 
-
+    <CollectionView x:Name="ContactsList" HorizontalOptions="Start" ItemsSource="{Binding Professionals}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Padding="10" Margin="20, 20" BorderColor="LightGray" MaximumWidthRequest="350" MaximumHeightRequest="280" HorizontalOptions="Start" BackgroundColor="LightBlue" CornerRadius="10">
+                    <HorizontalStackLayout Spacing="15">
+                        <Image Source="{Binding Image}" WidthRequest="50" HeightRequest="50" Aspect="AspectFill"/>
+                        <VerticalStackLayout Spacing="20">
+                            <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding PhoneNumber}" FontSize="14" TextColor="Gray" />
+                            <Label Text="{Binding Email}" FontSize="14" TextColor="Gray" />
+                            <Button Text="Call"
+                                    BackgroundColor="Green"
+                                    TextColor="White"
+                                    FontSize="14"
+                                    CornerRadius="5"
+                                    CommandParameter="{Binding PhoneNumber}"
+                                    Clicked="OnCallButtonClicked" />
+                            <Button Text="Email" 
+                                    CommandParameter="{Binding Email}" 
+                                    Clicked="OnEmailButtonClicked" 
+                                    BackgroundColor="Green" 
+                                    TextColor="White"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

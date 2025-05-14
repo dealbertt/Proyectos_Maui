@@ -12,18 +12,21 @@ namespace SafeSpace.Pages
 {
     public partial class HelpPage : ContentPage
     {
+       private HelpPageViewModel _viewModel;
+
         public HelpPage()
         {
             InitializeComponent();
-            ContactsList.ItemsSource = new List<Contact>
-            {
-                new Contact { Name = "Alice Johnson", PhoneNumber = "123-456-7890",Email = "alicejohn@help.com", Image = "avatar1.png" },
-                new Contact { Name = "Bob Smith", PhoneNumber = "987-654-3210",Email = "bobsmith@safespace.com", Image = "avatar2.png" },
-                new Contact { Name = "Carlos Gomez", PhoneNumber = "555-123-9876",Email = "carlosgomezperez@gmail.com", Image = "avatar3.png" },
-                new Contact { Name = "Pepe Gonzales", PhoneNumber = "687722820",Email = "carlosgomezperez@gmail.com", Image = "avatar4.png" }
-            };
-
+            _viewModel = new HelpPageViewModel();
+            BindingContext = _viewModel;
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await _viewModel.LoadProfessionals();
+        }
+
         private async void OnCallButtonClicked(object sender, EventArgs e)
         {
             if (sender is Button button && button.CommandParameter is string phoneNumber)

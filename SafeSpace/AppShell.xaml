@@ -37,4 +37,8 @@
     <ShellContent
     Route="ShowChatsPage"
     ContentTemplate="{DataTemplate pages:ShowChatsPage}" />
+    
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="True" />
+    </Shell.BackButtonBehavior>
 </Shell>

@@ -16,7 +16,7 @@ namespace SafeSpace.Pages
             set
             {
                 _chatroomName = Uri.UnescapeDataString(value);
-                Title = _chatroomName;  // Set the title of the page
+                Title = _chatroomName;
                 OnPropertyChanged(nameof(ChatroomName));
             }
         }
