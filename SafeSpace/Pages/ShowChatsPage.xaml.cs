@@ -15,6 +15,18 @@ namespace SafeSpace.Pages
             InitializeComponent();
             BindingContext = new ShowChatsPageViewModel();
         }
-       
+        private async void OnChatroomSelected(object sender, SelectionChangedEventArgs e)
+        {
+            // Get the selected chatroom
+            var selectedChatroom = e.CurrentSelection.FirstOrDefault() as ChatroomModel;
+
+            // Check if the selected chatroom is not null
+            if (selectedChatroom != null)
+            {
+                // Navigate to ChatPage and pass the ChatroomId as a query parameter
+                await Shell.Current.GoToAsync($"ChatPage?chatroomId={selectedChatroom.ChatroomId}&ChatroomName={Uri.EscapeDataString(selectedChatroom.Name)}");
+
+            }
+        }
     }
 }

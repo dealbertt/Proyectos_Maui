@@ -63,6 +63,7 @@
 	  <None Remove="Resources\Images\avatar2.png" />
 	  <None Remove="Resources\Images\avatar3.png" />
 	  <None Remove="Resources\Images\avatar4.png" />
+	  <None Remove="Resources\Images\chat.png" />
 	  <None Remove="Resources\Images\profile.png" />
 	  <None Remove="Resources\Images\user.png" />
 	</ItemGroup>

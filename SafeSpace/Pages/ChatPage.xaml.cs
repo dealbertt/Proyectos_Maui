@@ -1,19 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Maui.Controls;
 using SafeSpace.ViewModel;
 
 namespace SafeSpace.Pages
 {
+    [QueryProperty(nameof(ChatroomId), "chatroomId")]
+    [QueryProperty(nameof(ChatroomName), "ChatroomName")]
     public partial class ChatPage : ContentPage
     {
+        public int ChatroomId { get; set; }
+
+        public string ChatroomName
+        {
+            get => _chatroomName;
+            set
+            {
+                _chatroomName = Uri.UnescapeDataString(value);
+                Title = _chatroomName;  // Set the title of the page
+                OnPropertyChanged(nameof(ChatroomName));
+            }
+        }
+
+        private string _chatroomName;
+
         public ChatPage()
         {
             InitializeComponent();
-            BindingContext = this;
+            BindingContext = new ChatPageViewModel();  // Assume ViewModel handles messages based on ChatroomId
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await ((ChatPageViewModel)BindingContext).LoadMessages(ChatroomId);  // Load messages for this chatroom
         }
     }
 }

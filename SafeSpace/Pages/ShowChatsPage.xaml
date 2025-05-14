@@ -9,20 +9,20 @@
     
     <CollectionView ItemsSource="{Binding Chatrooms}"
                     SelectionMode="Single"
+                     SelectionChanged="OnChatroomSelected"
                     x:Name="ChatsList"
                     Margin="10">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame Padding="10" Margin="5" CornerRadius="10" BorderColor="White">
+                <Frame Padding="20" Margin="50,50,50,50" CornerRadius="10" BorderColor="White" BackgroundColor="Green">
                     <HorizontalStackLayout Spacing="15">
-                        <Image Source="{Binding Image}" WidthRequest="50" HeightRequest="50" Aspect="AspectFill" />
+                        <Image Source="chat.png" WidthRequest="40" HeightRequest="40"></Image>
                         <VerticalStackLayout>
+                            
                             <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" />
                             <Label Text="{Binding LastMessage}" FontSize="14" TextColor="Gray" />
-                            <Label Text="{Binding Chatrooms.Count}" 
-       FontSize="24" 
-       TextColor="Red" 
-       HorizontalOptions="Center" />
+                
+                            
                         </VerticalStackLayout>
                     </HorizontalStackLayout>
                 </Frame>
