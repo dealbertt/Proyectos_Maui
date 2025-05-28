@@ -89,11 +89,17 @@ namespace SafeSpace.ViewModel
                 var response = await httpClient.PostAsync(url, content);
                 var responseContent = await response.Content.ReadAsStringAsync();
 
+                using var jsonDoc = JsonDocument.Parse(responseContent);
+                var userInfo = jsonDoc.RootElement.GetProperty("userId").GetInt32();
+
                 if (response.IsSuccessStatusCode)
                 {
                     MessageColor = Colors.Green;
                     Message = "Register successful!";
-                    await Shell.Current.GoToAsync("///MainPage");
+                    Preferences.Set("UserId", userInfo);
+                    Preferences.Set("UserName", UserName);
+                    await Task.Delay(500);
+                    await Shell.Current.GoToAsync(nameof(CompleteProfilePage));
                 }
                 else
                 {

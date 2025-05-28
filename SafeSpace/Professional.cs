@@ -13,6 +13,6 @@ namespace SafeSpace.ViewModel
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string TypeOfProfessional { get; set; }
-        public string Image { get; set; } // This will hold the filename of the image (e.g., avatar1.png)
+        public string Image { get; set; }
     }
 }

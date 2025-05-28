@@ -12,6 +12,9 @@
                      SelectionChanged="OnChatroomSelected"
                     x:Name="ChatsList"
                     Margin="10, 50">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="25"/>
+        </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Frame Padding="20" Margin="50,50" MaximumWidthRequest="350" CornerRadius="10" BorderColor="White" BackgroundColor="Green">

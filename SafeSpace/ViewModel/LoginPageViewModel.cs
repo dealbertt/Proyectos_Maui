@@ -82,7 +82,7 @@ public class LoginViewModel : INotifyPropertyChanged
             {
                 MessageColor = Colors.Green;
                 Message = "Login successful!";
-                // You could navigate to another page here
+
 
                 await Task.Delay(500);
                 Preferences.Set("UserId", userInfo.GetProperty("id").GetInt32());
@@ -96,16 +96,34 @@ public class LoginViewModel : INotifyPropertyChanged
                     Preferences.Set("FullName", profile.GetProperty("fullName").GetString());
                     Preferences.Set("Bio", profile.GetProperty("bio").GetString());
                     Preferences.Set("Age", profile.GetProperty("age").GetInt32());
+                    if (profile.TryGetProperty("concerns", out var concernsElement) && concernsElement.ValueKind == JsonValueKind.Array)
+                    {
+                        var concernsList = new List<string>();
+
+                        foreach (var item in concernsElement.EnumerateArray())
+                        {
+                            if (item.ValueKind == JsonValueKind.String)
+                            {
+                                var concern = item.GetString();
+                                if (!string.IsNullOrWhiteSpace(concern))
+                                    concernsList.Add(concern);
+                            }
+                        }
+
+
+                        var concernsString = string.Join(", ", concernsList);
+                        Preferences.Set("Concerns", concernsString);
+
+
+                        await Shell.Current.GoToAsync("///HomePage");
+
+                    }
+                    else
+                    {
+                        MessageColor = Colors.Red;
+                        Message = "Login failed: " + responseContent;
+                    }
                 }
-
-
-                await Shell.Current.GoToAsync("///HomePage");
-
-            }
-            else
-            {
-                MessageColor = Colors.Red;
-                Message = "Login failed: " + responseContent;
             }
         }
         catch (Exception ex)

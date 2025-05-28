@@ -1,43 +1,56 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BackgroundColor="LightGray"
-             x:Class="SafeSpace.Pages.ShowProfilePage">
-   
-    <VerticalStackLayout
-            Padding="20"
-            Spacing="40">
-        <Image Source="user.png" WidthRequest="75" HeightRequest="75" HorizontalOptions="Start"></Image>
-        <Label Text="{Binding FullName, StringFormat='Full Name: {0}'}" HorizontalOptions="Start" FontSize="25"
-                IsVisible="{Binding IsEditingFullName, Converter={StaticResource InverseBoolConverter}}" ></Label>
-        <Entry Text="{Binding FullName, Mode=TwoWay}"
-               IsVisible="{Binding IsEditingFullName}" />
-       
-        <Button Text="{Binding FullNameEditButtonText}" FontFamily="Quicksand" FontSize="17" BackgroundColor="Green"
-                Command="{Binding ToggleEditFullNameCommand}" WidthRequest="60" HorizontalOptions="Start"/>
+             x:Class="SafeSpace.Pages.ShowProfilePage"
+             BackgroundColor="LightGray">
 
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="30">
 
-        <Label Text="{Binding Age, StringFormat='Age: {0}'}" HorizontalOptions="Start" FontSize="25"
-               IsVisible="{Binding IsEditingAge, Converter={StaticResource InverseBoolConverter}}" />
-        <Entry Text="{Binding Age, Mode=TwoWay}"
-               Keyboard="Numeric"
-               IsVisible="{Binding IsEditingAge}" />
-        <Button Text="{Binding AgeEditButtonText}" FontSize="17" FontFamily="Quicksand" BackgroundColor="Green"
-                Command="{Binding ToggleEditAgeCommand}" WidthRequest="60" HorizontalOptions="Start"/>
+            <Image Source="user.png" WidthRequest="75" HeightRequest="75" HorizontalOptions="Start" />
+            
+            <Frame CornerRadius="12" BackgroundColor="White" Padding="15" HasShadow="True">
+                <VerticalStackLayout>
+                    <Label Text="Full Name" FontSize="16" TextColor="Gray" FontAttributes="Bold" />
+                    <Label Text="{Binding FullName}" FontSize="20" TextColor="Black" />
+                </VerticalStackLayout>
+            </Frame>
 
-        <Label Text="{Binding Bio, StringFormat='Biography: {0}'}" HorizontalOptions="Start" FontSize="25"
-               IsVisible="{Binding IsEditingBio, Converter={StaticResource InverseBoolConverter}}" />
-        <Editor Text="{Binding Bio, Mode=TwoWay}"
-                AutoSize="TextChanges"
-                HeightRequest="80"
-                IsVisible="{Binding IsEditingBio}" />
-        <Button Text="{Binding BioEditButtonText}" FontFamily="Quicksand" FontSize="17" BackgroundColor="Green"
-                Command="{Binding ToggleEditBioCommand}" WidthRequest="60" HorizontalOptions="Start" />
+            
+            <Frame CornerRadius="12" BackgroundColor="White" Padding="15" HasShadow="True">
+                <VerticalStackLayout>
+                    <Label Text="Age" FontSize="16" TextColor="Gray" FontAttributes="Bold" />
+                    <Label Text="{Binding Age}" FontSize="20" TextColor="Black" />
+                </VerticalStackLayout>
+            </Frame>
 
+            
+            <Frame CornerRadius="12" BackgroundColor="White" Padding="15" HasShadow="True">
+                <VerticalStackLayout>
+                    <Label Text="Bio" FontSize="16" TextColor="Gray" FontAttributes="Bold" />
+                    <Label Text="{Binding Bio}" FontSize="20" TextColor="Black" />
+                </VerticalStackLayout>
+            </Frame>
 
-        <Button Text="Save Changes" BackgroundColor="Green" FontFamily="Quicksand" HorizontalOptions="Center" Command="{Binding SaveChanges}"></Button>
-    </VerticalStackLayout>
+            
+            <Frame CornerRadius="12" BackgroundColor="White" Padding="15" HasShadow="True">
+                <VerticalStackLayout>
+                    <Label Text="Concerns" FontSize="16" TextColor="Gray" FontAttributes="Bold" />
+                    <Label Text="{Binding Concerns}" FontSize="20" TextColor="Black" />
+                </VerticalStackLayout>
+            </Frame>
 
-
+            
+            <Button Text="Edit Profile"
+                    FontFamily="Quicksand"
+                    FontSize="18"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Command="{Binding EditProfileCommand}"
+                    HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>

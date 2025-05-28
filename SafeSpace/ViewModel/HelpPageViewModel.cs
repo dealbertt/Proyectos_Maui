@@ -20,7 +20,7 @@ namespace SafeSpace.ViewModel
             LoadProfessionals();
         }
 
-        // Method to load professionals from backend
+      
         public async Task LoadProfessionals()
         {
             try

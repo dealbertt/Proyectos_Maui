@@ -13,6 +13,8 @@
             <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
             <converters:BoolToColorConverter x:Key="BoolToColorConverter"/>
             <converters:BoolToAlignmentConverter x:Key="BoolToAlignmentConverter"/>
+            <converters:BoolToButtonColorConverter x:Key="BoolToButtonColorConverter"/>
+            <converters:BoolToJoinTextConverter x:Key="BoolToJoinTextConverter" />
         </ResourceDictionary>
       
     </Application.Resources>

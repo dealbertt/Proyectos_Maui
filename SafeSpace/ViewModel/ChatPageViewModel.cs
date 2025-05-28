@@ -29,7 +29,7 @@ namespace SafeSpace.ViewModel
         {
             _httpClient = new HttpClient();
             SendMessageCommand = new Command(async() => await SendMessageAsync());
-            SenderId = Preferences.Get("ProfileUserId", 0);
+            SenderId = Preferences.Get("UserId", 0);
         }
         public async Task LoadMessages(int chatroomId)
         {
@@ -48,7 +48,7 @@ namespace SafeSpace.ViewModel
                 Messages.Clear();
                 if (chatResponse?.Messages != null)
                 {
-                    var currentUserId = Preferences.Get("ProfileUserId", -1);
+                    var currentUserId = Preferences.Get("UserId", -1);
                     foreach (var msg in chatResponse.Messages)
                     {
                         msg.IsIncoming = msg.SenderId != currentUserId;
@@ -99,13 +99,13 @@ namespace SafeSpace.ViewModel
                 }
                 else
                 {
-                    // Handle failure case
+                    
                     await Application.Current.MainPage.DisplayAlert("Error", "Failed to send message", "OK");
                 }
             }
             catch (Exception ex)
             {
-                // Handle any exceptions (e.g., network error)
+               
                 await Application.Current.MainPage.DisplayAlert("Error", "An error occurred while sending the message.", "OK");
             }
         }

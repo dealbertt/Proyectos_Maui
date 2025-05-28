@@ -21,8 +21,8 @@
         </Label>
 
 
-        <Entry Text="{Binding UserName}"  Placeholder="Username" FontSize ="20" PlaceholderColor="Black" TextColor="Black"></Entry>
-        <Entry Text="{Binding Password}"  Placeholder="Password" FontSize="20" IsPassword="true" PlaceholderColor="Black" TextColor="Black"></Entry>
+        <Entry Text="{Binding UserName}" Placeholder="Username" FontSize ="20" BackgroundColor="Gray" PlaceholderColor="Black" TextColor="White" FontFamily="Quicksand"></Entry>
+        <Entry Text="{Binding Password}"  Placeholder="Password" BackgroundColor="Gray" FontSize="20" IsPassword="true" PlaceholderColor="Black" TextColor="White" FontFamily="Quicksand"></Entry>
 		<Label Text="{Binding Message}" TextColor="{Binding MessageColor}" FontSize="16" HorizontalOptions="Center"/>
         <Label Text="Don't have an account? Register"
        TextColor="Blue"

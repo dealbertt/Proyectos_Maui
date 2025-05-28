@@ -17,6 +17,8 @@ namespace SafeSpace.ViewModel
         public ICommand NavigateToProfile { get; }
         public ICommand NavigateToChats { get; }
         public ICommand NavigateToHelp { get; }
+
+        public ICommand NavigateToMeetups { get; }
         public ICommand LogOut{ get; }
         public string WelcomeMessage
         {
@@ -42,6 +44,7 @@ namespace SafeSpace.ViewModel
             NavigateToProfile = new Command(async () => await Shell.Current.GoToAsync(nameof(ShowProfilePage)));
             NavigateToChats = new Command(async () => await Shell.Current.GoToAsync(nameof(ShowChatsPage)));
             NavigateToHelp = new Command(async () => await Shell.Current.GoToAsync(nameof(HelpPage)));
+            NavigateToMeetups = new Command(async () => await Shell.Current.GoToAsync(nameof(MeetupPage)));
             LogOut = new Command(OnLogOut);
         }
         public async void OnLogOut()

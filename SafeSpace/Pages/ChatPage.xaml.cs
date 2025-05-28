@@ -26,13 +26,13 @@ namespace SafeSpace.Pages
         public ChatPage()
         {
             InitializeComponent();
-            BindingContext = new ChatPageViewModel();  // Assume ViewModel handles messages based on ChatroomId
+            BindingContext = new ChatPageViewModel();
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await ((ChatPageViewModel)BindingContext).LoadMessages(ChatroomId);  // Load messages for this chatroom
+            await ((ChatPageViewModel)BindingContext).LoadMessages(ChatroomId);
         }
     }
 }

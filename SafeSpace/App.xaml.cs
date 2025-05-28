@@ -15,6 +15,7 @@ namespace SafeSpace
             Routing.RegisterRoute(nameof(HelpPage), typeof(HelpPage));
             Routing.RegisterRoute(nameof(ChatPage), typeof(ChatPage));
             Routing.RegisterRoute(nameof(ShowChatsPage), typeof(ShowChatsPage));
+            Routing.RegisterRoute(nameof(MeetupPage), typeof(MeetupPage));
 
             bool isLoggedIn = Preferences.ContainsKey("UserName");
             if (isLoggedIn)

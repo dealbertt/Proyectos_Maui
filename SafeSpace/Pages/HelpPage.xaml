@@ -7,6 +7,10 @@
              Title="Recommended Contacts">
 
     <CollectionView x:Name="ContactsList" HorizontalOptions="Start" ItemsSource="{Binding Professionals}">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
+        </CollectionView.ItemsLayout>
+
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Frame Padding="10" Margin="20, 20" BorderColor="LightGray" MaximumWidthRequest="350" MaximumHeightRequest="280" HorizontalOptions="Start" BackgroundColor="LightBlue" CornerRadius="10">

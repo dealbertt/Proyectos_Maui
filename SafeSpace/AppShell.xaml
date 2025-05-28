@@ -37,7 +37,14 @@
     <ShellContent
     Route="ShowChatsPage"
     ContentTemplate="{DataTemplate pages:ShowChatsPage}" />
-    
+
+    <ShellContent
+ Route="MeetupPage"
+ ContentTemplate="{DataTemplate pages:MeetupPage}" />
+
+    <ShellContent
+ Route="CompleteProfilePage"
+ ContentTemplate="{DataTemplate pages:CompleteProfilePage}" />
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsEnabled="True" />
     </Shell.BackButtonBehavior>

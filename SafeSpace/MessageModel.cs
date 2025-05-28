@@ -13,13 +13,13 @@ namespace SafeSpace.Pages
     }
     public class MessageModel
     {
-        public int MessageId { get; set; }     // Add this
-        public int SenderId { get; set; }      // Add this
+        public int MessageId { get; set; }     
+        public int SenderId { get; set; }   
         public string Content { get; set; }
         public DateTime Timestamp { get; set; }
         public string SenderName { get; set; }
 
-        // Optional – not in JSON, set manually after deserialization
+        
         public bool IsIncoming { get; set; }
     }
 }

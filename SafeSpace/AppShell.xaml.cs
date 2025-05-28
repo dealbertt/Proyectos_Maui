@@ -14,6 +14,7 @@ namespace SafeSpace
             Routing.RegisterRoute("ShowChatsPage", typeof(ShowChatsPage));
             Routing.RegisterRoute("ChatPage", typeof(ChatPage));
             Routing.RegisterRoute("ShowProfilePage", typeof(ShowProfilePage));
+            Routing.RegisterRoute("CompleteProfilePage", typeof(CompleteProfilePage));
 
 
         }

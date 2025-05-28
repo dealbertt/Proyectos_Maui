@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SafeSpace.Pages.CompleteProfilePage"
+			 BackgroundColor="LightGray">
+
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+			<Label Text="Introduce your full name" TextColor="White" FontFamily="Quicksand"/>
+            <Entry Placeholder="Full Name"  Text="{Binding FullName}" TextColor="White" BackgroundColor="Gray" FontFamily="Quicksand" />
+
+			<Label Text="Introduce your age" FontFamily="Quicksand" />
+            <Entry Placeholder="Age" Keyboard="Numeric" Text="{Binding Age}" TextColor="White" BackgroundColor="Gray"/>
+
+			<Label Text="Tell the world about yourself" FontFamily="Quicksand" />
+            <Editor Placeholder="Bio" AutoSize="TextChanges"  FontFamily="Quicksand" Text="{Binding Bio}" TextColor="White" BackgroundColor="Gray"/>
+
+			<Label Text="What is your main mental health concern?" FontFamily="Quicksand" />
+			<Entry Placeholder="Concern 1" Text="{Binding Concern1}"  FontFamily="Quicksand" TextColor="White" BackgroundColor="Gray"/>
+
+			<Label Text="What about the second?" FontFamily="Quicksand"/>
+			<Entry Placeholder="Concern 2" Text="{Binding Concern2}" FontFamily="Quicksand" TextColor="White" BackgroundColor="Gray"/>
+
+			<Label Text="If so, anything else you are worried/instered in?" FontFamily="Quicksand" />
+			<Entry Placeholder="Concern 3" Text="{Binding Concern3}" FontFamily="Quicksand" TextColor="White" BackgroundColor="Gray"/>
+			
+			
+            <Button Text="Save Profile" Command="{Binding SaveCommand}" FontFamily="Quicksand" BackgroundColor="Green"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

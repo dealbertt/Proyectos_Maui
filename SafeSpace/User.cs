@@ -14,6 +14,7 @@ namespace SafeSpace
         public int Age { get; set; }
         public string Bio { get; set; }
 
+        public List<string> Concerns { get; set; } = new List<string>();
         public UserUpdateDto user { get; set; }
         
     }

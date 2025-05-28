@@ -23,6 +23,9 @@
                         Grid.Row="1"
                         VerticalOptions="FillAndExpand"
                         SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame Padding="10"
